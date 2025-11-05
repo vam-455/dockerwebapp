@@ -1,8 +1,9 @@
 apiVersion: apps/v1
-kind: StateFulSet
+kind: StatefulSet
 metadata:
   name: dbapp
 spec:
+  serviceName: devopsdb
   replicas: 3
   selector:
     matchLabels:
@@ -19,7 +20,6 @@ spec:
             - containerPort: 3306
       imagePullSecrets:
         - name: vam
-
 
 ---
 apiVersion: v1
